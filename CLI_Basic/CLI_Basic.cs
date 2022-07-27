@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using CLI_Basic.Properties;
+
 
 namespace CLI_Basic
 {
@@ -16,10 +18,16 @@ namespace CLI_Basic
     {
         OpenFileDialog ofd = new OpenFileDialog();
         FolderBrowserDialog fbd = new FolderBrowserDialog();
+        
 
         public CLI_Basic()
         {
             InitializeComponent();
+            // Use settings from properties as defaults
+            TxtInputFolder.Text = Settings.Default["InputFolder"].ToString();
+            TxtOutputFolder.Text = Settings.Default["OutputFolder"].ToString();
+            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -105,6 +113,31 @@ namespace CLI_Basic
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 TxtOutputFolder.Text = fbd.SelectedPath;
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // Save settings for next session
+            Settings.Default["InputFolder"] = TxtInputFolder.Text;
+            Settings.Default["OutputFolder"] = TxtOutputFolder.Text;
+            Settings.Default.Save();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Working");
+        }
+
+        private void chkTimer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTimer.Checked == true)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
             }
         }
     }

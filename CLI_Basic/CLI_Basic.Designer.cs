@@ -29,6 +29,8 @@ namespace CLI_Basic
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CLI_Basic));
             this.btnExecute = new System.Windows.Forms.Button();
             this.TxtInputFolder = new System.Windows.Forms.TextBox();
             this.TxtOutputFolder = new System.Windows.Forms.TextBox();
@@ -37,6 +39,11 @@ namespace CLI_Basic
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.chkTimer = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExecute
@@ -134,11 +141,51 @@ namespace CLI_Basic
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(25, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 137);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSave.Location = new System.Drawing.Point(117, 403);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save Settings";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // chkTimer
+            // 
+            this.chkTimer.AutoSize = true;
+            this.chkTimer.Location = new System.Drawing.Point(263, 406);
+            this.chkTimer.Name = "chkTimer";
+            this.chkTimer.Size = new System.Drawing.Size(94, 19);
+            this.chkTimer.TabIndex = 11;
+            this.chkTimer.Text = "Enable Timer";
+            this.chkTimer.UseVisualStyleBackColor = true;
+            this.chkTimer.CheckedChanged += new System.EventHandler(this.chkTimer_CheckedChanged);
+            // 
             // CLI_Basic
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(363, 413);
+            this.ClientSize = new System.Drawing.Size(362, 390);
+            this.Controls.Add(this.chkTimer);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -151,6 +198,7 @@ namespace CLI_Basic
             this.Name = "CLI_Basic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArtEngine CLI Demo";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,6 +214,10 @@ namespace CLI_Basic
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox chkTimer;
     }
 }
 
